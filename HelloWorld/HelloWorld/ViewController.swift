@@ -20,6 +20,32 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func showSwiftWorld()
+    {
+        //Swift Main title / message
+        let showAlert = UIAlertController(
+            
+            title: "Swift World",
+            message: "Welcome to Swift World",
+            preferredStyle: UIAlertControllerStyle.Alert
+        )
+        
+        //Below Alart Message
+        showAlert.addAction(
+            
+            UIAlertAction(
+                title: "Finish",
+                style: UIAlertActionStyle.Default,
+                handler: nil
+            )
+        )
+        //Show
+        self.presentViewController(
+            showAlert,
+            animated: true,
+            completion: nil
+        )
+    }
 }
+
 
