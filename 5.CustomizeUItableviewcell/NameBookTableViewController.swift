@@ -28,7 +28,7 @@ class NameBookTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     var NameBooks = ["Daris", "John", "Mary"]
-  
+    var NameBooksImage = ["Person.png", "Mary.png", "John.png"]
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -43,7 +43,7 @@ class NameBookTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath:indexPath)
         
         cell.textLabel?.text = NameBooks[indexPath.row]
-        cell.imageView?.image = UIImage(named: "Person.png")
+        cell.imageView?.image = UIImage(named: NameBooksImage[indexPath.row])
         
         return cell
         
