@@ -8,11 +8,12 @@
 
 import UIKit
 
+
 class NameBookTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -27,12 +28,14 @@ class NameBookTableViewController: UITableViewController {
 
     // MARK: - Table view data source
     
-    var NameBooks = ["Daris", "John", "Mary"]
-    var NameBooksImage = ["Person.png", "Mary.png", "John.png"]
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    var NameBooks = ["VIX指數"]
+    var Detail = ["恐慌指數"]
+    var NameBooksImage = ["Push.png"]
+    var ArrorImage = ["Arrow.png"]
+   /* override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
-    }
+    }*/
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return NameBooks.count
@@ -40,14 +43,22 @@ class NameBookTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "Cell"
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath:indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath:indexPath) as! NameBookTableViewCell
         
-        cell.textLabel?.text = NameBooks[indexPath.row]
-        cell.imageView?.image = UIImage(named: NameBooksImage[indexPath.row])
+        cell.TitleLabel?.text = NameBooks[indexPath.row]
+        cell.DetailLabel?.text = Detail[indexPath.row]
+        cell.thumbImageView?.image = UIImage(named: NameBooksImage[indexPath.row])
+        cell.arrowView?.image = UIImage(named: ArrorImage[indexPath.row])
         
         return cell
         
     }
+    
+//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        return 60
+//        
+//    }
+    
     
     
         // #warning Incomplete implementation, return the number of rows

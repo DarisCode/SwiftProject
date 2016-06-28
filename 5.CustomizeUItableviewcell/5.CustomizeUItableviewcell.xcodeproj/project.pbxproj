@@ -12,6 +12,7 @@
 		137902DA1D1E79BE0085EDF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137902D91D1E79BE0085EDF5 /* Assets.xcassets */; };
 		137902DD1D1E79BE0085EDF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 137902DB1D1E79BE0085EDF5 /* LaunchScreen.storyboard */; };
 		137902E51D1E7AE90085EDF5 /* NameBookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137902E41D1E7AE90085EDF5 /* NameBookTableViewController.swift */; };
+		137902E71D1EC4530085EDF5 /* NameBookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137902E61D1EC4530085EDF5 /* NameBookTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		137902DC1D1E79BE0085EDF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		137902DE1D1E79BE0085EDF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		137902E41D1E7AE90085EDF5 /* NameBookTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NameBookTableViewController.swift; path = ../NameBookTableViewController.swift; sourceTree = "<group>"; };
+		137902E61D1EC4530085EDF5 /* NameBookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameBookTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				137902D21D1E79BE0085EDF5 /* AppDelegate.swift */,
 				137902E41D1E7AE90085EDF5 /* NameBookTableViewController.swift */,
 				137902D61D1E79BE0085EDF5 /* Main.storyboard */,
+				137902E61D1EC4530085EDF5 /* NameBookTableViewCell.swift */,
 				137902D91D1E79BE0085EDF5 /* Assets.xcassets */,
 				137902DB1D1E79BE0085EDF5 /* LaunchScreen.storyboard */,
 				137902DE1D1E79BE0085EDF5 /* Info.plist */,
@@ -138,6 +141,7 @@
 			files = (
 				137902D31D1E79BE0085EDF5 /* AppDelegate.swift in Sources */,
 				137902E51D1E7AE90085EDF5 /* NameBookTableViewController.swift in Sources */,
+				137902E71D1EC4530085EDF5 /* NameBookTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
