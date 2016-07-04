@@ -50,6 +50,8 @@ class NameBookTableViewController: UITableViewController {
         cell.thumbImageView?.image = UIImage(named: NameBooksImage[indexPath.row])
         cell.arrowView?.image = UIImage(named: ArrorImage[indexPath.row])
         
+        cell.thumbImageView.layer.cornerRadius = 30.0
+        cell.thumbImageView.clipsToBounds = true
         return cell
         
     }
