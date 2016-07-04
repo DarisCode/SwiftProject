@@ -56,6 +56,20 @@ class NameBookTableViewController: UITableViewController {
         
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
+        
+        //OptionMenu
+        let optionMenu = UIAlertController(title: nil, message: "This is UIAlertController", preferredStyle:  .ActionSheet)
+        
+        //UIAlertAction
+        let cancelAction = UIAlertAction(title: "Cancel", style:  .Cancel, handler: nil)
+        optionMenu.addAction(cancelAction)
+        
+        //Show Menu
+        self.presentViewController(optionMenu, animated: true, completion: nil)
+    }
+    
 //    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
 //        return 60
 //        
