@@ -1,3 +1,8 @@
+Adobe Color 
+>https://color.adobe.com/zh/
+Flatuicolorpicker
+>http://www.flatuicolorpicker.com/
+
 ##刪除 更新畫面
 >tableView.reloadData()
 
