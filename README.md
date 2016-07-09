@@ -53,3 +53,36 @@ deleteAction.backgroundColor = UIColor(colorLiteralRed: 100.0/255.0, green:100.0
         
     }
 ```
+
+##Segue
+先建立一個類別<br>
+NamebookDetailController(繼承UIViewController)<br>
+然後將Cell連接到一個新創的ViewController 放上一個imageView <br>
+然後使用show將Cell與ViewController然後此ViewController class選NamebookDetailController<br>
+<br>
+####NamebookDetailController
+
+```swift
+ @IBOutlet var NameBookImageView:UIImageView!
+    var NameBookImage=""
+
+```
+####NameBookTableViewController
+
+```swift
+ 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        
+        if segue.identifier == "showNameBookDetail"
+        {
+            if let indexPath = tableView.indexPathForSelectedRow
+            {
+                let destinationController = segue.destinationViewController as! NameBookDetailViewController
+                destinationController.NameBookImage = NameBooksImage[indexPath.row]
+                
+            }
+            
+        }
+    }
+```
