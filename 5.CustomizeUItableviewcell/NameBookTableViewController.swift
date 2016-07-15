@@ -11,6 +11,12 @@ import UIKit
 
 class NameBookTableViewController: UITableViewController {
 
+    
+    var NameBooks = ["VIX指數"]
+    var Detail = ["恐慌指數"]
+    var NameBooksImage = ["Push.png"]
+    var ArrorImage = ["Arrow.png"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,8 +25,16 @@ class NameBookTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        
+        title = "台股觀測站"
+        
+               
+            }
 
+    
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -28,11 +42,8 @@ class NameBookTableViewController: UITableViewController {
 
     // MARK: - Table view data source
     
-    var NameBooks = ["VIX指數"]
-    var Detail = ["恐慌指數"]
-    var NameBooksImage = ["Push.png"]
-    var ArrorImage = ["Arrow.png"]
-   /* override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+
+      /* override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }*/
@@ -55,21 +66,127 @@ class NameBookTableViewController: UITableViewController {
         return cell
         
     }
+//    
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+   
+//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+//    {
+//
+//        /*OptionMenu*/
+//    
+//        //Alert Bottom
+////        let optionMenu = UIAlertController(title: nil, message: "This is UIAlertController", preferredStyle:  .ActionSheet)
+//        
+//        //Alert Center
+//        let optionMenu = UIAlertController(title: nil, message: "This is UIAlertController", preferredStyle:  .Alert)
+//        
+//        //UIAlertAction
+//        //handler means do -> (function)
+//        
+//        // Alert left
+//        let cancelAction = UIAlertAction(title: "Cancel", style:  .Cancel, handler: nil)
+//        optionMenu.addAction(cancelAction)
+//        
+//        let callActionHandler =
+//        { (action:UIAlertAction!) -> Void in
+//            
+//            
+//            let alertmessage = UIAlertController(title: "service unavialable", message: "sorry, this call is not availble yet. Please retry letter", preferredStyle: .Alert)
+//            
+//            alertmessage.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+//            self.presentViewController(alertmessage, animated: true, completion: nil)
+        
+//        }
+//
+    
+//        
+//        
+//        // Alert Right 
+//        // if you choose call than execute callActionHandler
+//        let callAction = UIAlertAction(title: "Call", style: .Default, handler: callActionHandler)
+//        optionMenu.addAction(callAction)
+//        
+//        
+//        //Show Menu
+//        self.presentViewController(optionMenu, animated: true, completion: nil)
+//        
+//        
+//    }
+    
+    //Delete Row
+//    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+//    {
+//        
+//        if editingStyle == .Delete
+//        
+//        {
+//            NameBooks.removeAtIndex(indexPath.row)
+//            Detail.removeAtIndex(indexPath.row)
+//            NameBooksImage.removeAtIndex(indexPath.row)
+//            ArrorImage.removeAtIndex(indexPath.row)
+//        }
+//        
+//        //Default ReloadData
+////        tableView.reloadData()
+//        
+//        //Delete Animation
+//        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+//        
+//    }
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?
     {
         
-        //OptionMenu
-        let optionMenu = UIAlertController(title: nil, message: "This is UIAlertController", preferredStyle:  .ActionSheet)
+        let shareAction = UITableViewRowAction(style: .Default, title: "Share", handler:
+            {(action,indexPath)-> Void in
+                
+                let defaultText = "Just checking in at" + self.NameBooks[indexPath.row]
+                
+                let activityController = UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
+                
+                self.presentViewController(activityController, animated: true, completion: nil)
+            })
         
-        //UIAlertAction
-        let cancelAction = UIAlertAction(title: "Cancel", style:  .Cancel, handler: nil)
-        optionMenu.addAction(cancelAction)
+        let deleteAction = UITableViewRowAction(style: .Default, title: "Delete", handler: {(action, indexPath) -> Void in
+            
+            
+            self.NameBooks.removeAtIndex(indexPath.row)
+            self.Detail.removeAtIndex(indexPath.row)
+            self.NameBooksImage.removeAtIndex(indexPath.row)
+            self.ArrorImage.removeAtIndex(indexPath.row)
+            
+            //Default ReloadData
+            tableView.reloadData()
+            
+
+            })
         
-        //Show Menu
-        self.presentViewController(optionMenu, animated: true, completion: nil)
+        shareAction.backgroundColor = UIColor(colorLiteralRed: 28.0/255.0, green: 165.0/255.0, blue: 253.0/255.0, alpha: 1.0)
+        deleteAction.backgroundColor = UIColor(colorLiteralRed: 100.0/255.0, green:100.0/255.0, blue: 100.0/255.0, alpha: 1.0)
+        
+        return [deleteAction, shareAction]
+        
+           }
+    
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        
+        if segue.identifier == "showNameBookDetail"
+        {
+            if let indexPath = tableView.indexPathForSelectedRow
+            {
+                let destinationController = segue.destinationViewController as! NameBookDetailViewController
+                destinationController.NameBookImage = NameBooksImage[indexPath.row]
+                
+            }
+            
+        }
     }
     
+    
+  
 //    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
 //        return 60
 //        
@@ -136,5 +253,6 @@ class NameBookTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
 
 }

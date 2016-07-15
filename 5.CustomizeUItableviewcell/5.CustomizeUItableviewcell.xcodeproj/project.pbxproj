@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1332AD8E1D30D99200CCFB7B /* NameBookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1332AD8D1D30D99200CCFB7B /* NameBookDetailViewController.swift */; };
 		137902D31D1E79BE0085EDF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137902D21D1E79BE0085EDF5 /* AppDelegate.swift */; };
 		137902D81D1E79BE0085EDF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 137902D61D1E79BE0085EDF5 /* Main.storyboard */; };
 		137902DA1D1E79BE0085EDF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137902D91D1E79BE0085EDF5 /* Assets.xcassets */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1332AD8D1D30D99200CCFB7B /* NameBookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameBookDetailViewController.swift; sourceTree = "<group>"; };
+		1332AD8F1D3348B300CCFB7B /* PingFang.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = PingFang.ttc; sourceTree = "<group>"; };
 		137902CF1D1E79BE0085EDF5 /* 5.CustomizeUItableviewcell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 5.CustomizeUItableviewcell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		137902D21D1E79BE0085EDF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		137902D71D1E79BE0085EDF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -58,8 +61,10 @@
 			children = (
 				137902D21D1E79BE0085EDF5 /* AppDelegate.swift */,
 				137902E41D1E7AE90085EDF5 /* NameBookTableViewController.swift */,
+				1332AD8D1D30D99200CCFB7B /* NameBookDetailViewController.swift */,
 				137902D61D1E79BE0085EDF5 /* Main.storyboard */,
 				137902E61D1EC4530085EDF5 /* NameBookTableViewCell.swift */,
+				1332AD8F1D3348B300CCFB7B /* PingFang.ttc */,
 				137902D91D1E79BE0085EDF5 /* Assets.xcassets */,
 				137902DB1D1E79BE0085EDF5 /* LaunchScreen.storyboard */,
 				137902DE1D1E79BE0085EDF5 /* Info.plist */,
@@ -142,6 +147,7 @@
 				137902D31D1E79BE0085EDF5 /* AppDelegate.swift in Sources */,
 				137902E51D1E7AE90085EDF5 /* NameBookTableViewController.swift in Sources */,
 				137902E71D1EC4530085EDF5 /* NameBookTableViewCell.swift in Sources */,
+				1332AD8E1D30D99200CCFB7B /* NameBookDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +299,7 @@
 				137902E31D1E79BE0085EDF5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
