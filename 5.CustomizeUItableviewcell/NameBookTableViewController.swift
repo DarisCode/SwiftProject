@@ -25,7 +25,7 @@ class NameBookTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         title = "台股觀測站"
         
@@ -48,18 +48,18 @@ class NameBookTableViewController: UITableViewController {
         return 1
     }*/
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return NameBooks.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "Cell"
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath:indexPath) as! NameBookTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for:indexPath) as! NameBookTableViewCell
         
-        cell.TitleLabel?.text = NameBooks[indexPath.row]
-        cell.DetailLabel?.text = Detail[indexPath.row]
-        cell.thumbImageView?.image = UIImage(named: NameBooksImage[indexPath.row])
-        cell.arrowView?.image = UIImage(named: ArrorImage[indexPath.row])
+        cell.TitleLabel?.text = NameBooks[(indexPath as NSIndexPath).row]
+        cell.DetailLabel?.text = Detail[(indexPath as NSIndexPath).row]
+        cell.thumbImageView?.image = UIImage(named: NameBooksImage[(indexPath as NSIndexPath).row])
+        cell.arrowView?.image = UIImage(named: ArrorImage[(indexPath as NSIndexPath).row])
         
         cell.thumbImageView.layer.cornerRadius = 30.0
         cell.thumbImageView.clipsToBounds = true
@@ -134,26 +134,26 @@ class NameBookTableViewController: UITableViewController {
 //        
 //    }
     
-    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]?
     {
         
-        let shareAction = UITableViewRowAction(style: .Default, title: "Share", handler:
+        let shareAction = UITableViewRowAction(style: .default, title: "Share", handler:
             {(action,indexPath)-> Void in
                 
-                let defaultText = "Just checking in at" + self.NameBooks[indexPath.row]
+                let defaultText = "Just checking in at" + self.NameBooks[(indexPath as NSIndexPath).row]
                 
                 let activityController = UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
                 
-                self.presentViewController(activityController, animated: true, completion: nil)
+                self.present(activityController, animated: true, completion: nil)
             })
         
-        let deleteAction = UITableViewRowAction(style: .Default, title: "Delete", handler: {(action, indexPath) -> Void in
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: {(action, indexPath) -> Void in
             
             
-            self.NameBooks.removeAtIndex(indexPath.row)
-            self.Detail.removeAtIndex(indexPath.row)
-            self.NameBooksImage.removeAtIndex(indexPath.row)
-            self.ArrorImage.removeAtIndex(indexPath.row)
+            self.NameBooks.remove(at: (indexPath as NSIndexPath).row)
+            self.Detail.remove(at: (indexPath as NSIndexPath).row)
+            self.NameBooksImage.remove(at: (indexPath as NSIndexPath).row)
+            self.ArrorImage.remove(at: (indexPath as NSIndexPath).row)
             
             //Default ReloadData
             tableView.reloadData()
@@ -170,15 +170,15 @@ class NameBookTableViewController: UITableViewController {
     
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         
         if segue.identifier == "showNameBookDetail"
         {
             if let indexPath = tableView.indexPathForSelectedRow
             {
-                let destinationController = segue.destinationViewController as! NameBookDetailViewController
-                destinationController.NameBookImage = NameBooksImage[indexPath.row]
+                let destinationController = segue.destination as! NameBookDetailViewController
+                destinationController.NameBookImage = NameBooksImage[(indexPath as NSIndexPath).row]
                 
             }
             
