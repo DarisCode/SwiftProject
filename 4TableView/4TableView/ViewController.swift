@@ -21,22 +21,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //回傳總列數
         //總共看陣列有幾個物件就回傳幾列
         return studentNames.count
 
     }
    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellIdentifier = "Cell"
         //重複利用表格內用有的cell但顯示不同的物件
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         
         //設定Cell
-        cell.textLabel?.text = studentNames[indexPath.row]
+        cell.textLabel?.text = studentNames[(indexPath as NSIndexPath).row]
         
         return cell
     }
